@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- title and logo  -->
+    <title>English Janala | Best Platfrom for learning english</title>
+    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- tailwind and daisyui cdn link  -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- style  -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <header>
+        <div class="navbar bg-base-100 shadow-sm">
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
+                    </div>
+                    <ul tabindex="0"
+                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        <li><a href="#faq">
+                                <i class="fa-solid fa-circle-question"></i>FAQ</a></li>
+                        <li><a href="#faq">
+                                <i class="fa-solid fa-book-open"></i>Learn</a></li>
+                        <li><a href="#faq">
+                                <i class="fa-solid fa-arrow-right-to-bracket"></i>Log In</a></li>
+                    </ul>
+                </div>
+                <a href="#" class="flex items-center gap-2 btn btn-ghost normal-case text-xl">
+                    <span>English</span>
+                    <img src="./assets/logo.png">
+                    <span>জানালা</span>
+                </a>
+            </div>
+            <div class="navbar-end hidden lg:flex">
+                <ul class="menu menu-horizontal px-1 space-x-4">
+                    <li><a href="#faq" class="btn btn-outline btn-primary">
+                            <i class="fa-solid fa-circle-question"></i>FAQ</a></li>
+                    <li><a href="#faq" class="btn btn-outline btn-primary">
+                            <i class="fa-solid fa-book-open"></i>Learn</a></li>
+                    <li><a href="#faq" class="btn btn-outline btn-primary">
+                            <i class="fa-solid fa-arrow-right-to-bracket"></i>Log In</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section class="flex flex-col-reverse lg:flex-row items-center justify-center gap-10 px-5 py-10 lg:py-20">
+        <div class="content flex-1 text-center md:text-left">
+            <h2 class="text-4xl font-bold mb-8 ">
+                <span class="text-sky-400">English</span> is Easy !!
+            </h2>
+            <p class="font-bangla text-lg">
+                আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের
+                Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ
+            </p>
+            <div class="from">
+                <label class="input validator mt-3 mb-0">
+                    <input type="text" required placeholder="Enter Your Name" pattern="[A-Za-z][A-Za-z0-9\-]*"
+                        minlength="3" maxlength="30" title="Only letters, numbers or dash" />
+                </label>
+                <p class="validator-hint">
+                    Must be 3 to 30 characters
+                    <br />containing only letters, numbers or dash
+                </p>
+
+                <label class="input validator mt-0"> <!-- mt-3 থেকে mt-1 -->
+                    <input type="password" required placeholder="Password" minlength="8"
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                        title="Must be more than 8 characters, including number, lowercase letter, uppercase letter" />
+                </label>
+                <p class="validator-hint hidden">
+                    Must be more than 8 characters, including
+                    <br />At least one number <br />At least one lowercase letter <br />At least one uppercase letter
+                </p>
+            </div>
+
+        </div>
+        <div class="image flex-1">
+            <img src="./assets/hero-student.png">
+        </div>
+
+    </section>
+
+    <section>
+        <h2 class="text-4xl font-bold mb-8 text-center">
+            <span class="text-sky-400">Let's</span> Learn Vocabulary !!
+        </h2>
+        <div id="level-container" class="flex flex-wrap justify-center gap-5 px-5 py-10 lg:py-20">
+            <!-- Level cards will be dynamically inserted here -->
+        </div>
+    </section>
+    <section class="flex justify-center">
+        <div class="join">
+            <div>
+                <label class="input validator join-item">
+
+                    <input id="input-search" type="text" placeholder="Search vocabulary Now" required />
+                </label>
+            </div>
+            <button id="btn-search" class="btn btn-primary join-item">Search</button>
+        </div>
+    </section>
+
+
+    <section id="spinner" class="flex justify-center items-center py-10">
+        <span class="loading loading-bars loading-xl"></span>
+    </section>
+    <section id="word-container" class="bg-gray-100 p-10 w-11/12 mx-auto my-10 grid grid-cols-3 gap-5 ">
+        <div class="text-center bg-sky-100 col-span-full rounded-xl py-10 space-y-6 font-bangla">
+            <p class="text-xl font-medium text-gray-400">আপনি এখানে কোন লেসন সিলেক্ট করেন নাই</p>
+            <h2 class="font-bold text-4xl">একটি লেসন সিলেক্ট করুন</h2>
+        </div>
+
+    </section>
+
+    <section class="w-11/12 mx-auto my-10">
+        <h2 class="text-4xl font-bold mb-8 text-center">
+            <span class="text-sky-400">Frequently</span> Asked Questions
+        </h2>
+
+        <div class="join join-vertical w-full">
+            <!-- Q1 -->
+            <div class="collapse collapse-arrow join-item border border-base-300">
+                <input type="checkbox" />
+                <div class="collapse-title text-lg font-bold">
+                    How can I start learning English on this website?
+                </div>
+                <div class="collapse-content text-gray-600">
+                    <p>
+                        You can start by exploring our beginner lessons, interactive exercises,
+                        and quizzes. We also offer structured courses to guide you step by step.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="collapse collapse-arrow join-item border border-base-300">
+                <input type="checkbox" />
+                <div class="collapse-title text-lg font-bold">
+                    Is this website free to use?
+                </div>
+                <div class="collapse-content text-gray-600">
+                    <p>
+                        Yes! Most of our lessons and resources are completely free. Some premium
+                        features may require a subscription.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="collapse collapse-arrow join-item border border-base-300">
+                <input type="checkbox" />
+                <div class="collapse-title text-lg font-bold">
+                    Do I need to create an account?
+                </div>
+                <div class="collapse-content text-gray-600">
+                    <p>
+                        No, you can start learning without an account. However, creating an account
+                        helps you save progress and access additional features.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="collapse collapse-arrow join-item border border-base-300">
+                <input type="checkbox" />
+                <div class="collapse-title text-lg font-bold">
+                    How can I build my English vocabulary?
+                </div>
+                <div class="collapse-content text-gray-600">
+                    <p>
+                        You can build your vocabulary by practicing with our daily word lessons,
+                        flashcards, and interactive quizzes designed for all levels.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="collapse collapse-arrow join-item border border-base-300">
+                <input type="checkbox" />
+                <div class="collapse-title text-lg font-bold">
+                    Do you offer certificates for completed courses?
+                </div>
+                <div class="collapse-content text-gray-600">
+                    <p>
+                        Yes, after completing structured courses you will receive a digital certificate
+                        that you can share on your resume or LinkedIn profile.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="bg-sky-200 p-10">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-start gap-10">
+
+            <!-- Left Section -->
+            <div class="left flex flex-col items-start gap-3">
+                <a href="#" class="flex items-center gap-2 btn btn-ghost normal-case text-xl p-0">
+                    <span>English</span>
+                    <img src="./assets/logo.png" class="w-8 h-8">
+                    <span>জানালা</span>
+                </a>
+                <h2 class="text-[#546A7F] font-medium text-lg">ইংরেজি শিখুন সহজে</h2>
+                <p class="text-[#546A7F] font-normal text-sm">Providing ED-Tech Applications of Rafia since 2025</p>
+            </div>
+
+            <!-- Right Section -->
+            <div class="right flex flex-col items-end gap-3">
+                <h2 class="font-bold text-lg">FOLLOW US</h2>
+                <div class="flex items-center gap-3">
+                    <a href="#"><img src="./assets/instagram-thumb.png" alt="Instagram" class="w-8 h-8"></a>
+                    <a href="#"><img src="./assets/youtube-thumb.png" alt="YouTube" class="w-8 h-8"></a>
+                    <a href="#"><img src="./assets/github-thumb.png" alt="GitHub" class="w-8 h-8"></a>
+                    <a href="#"><img src="./assets/fb-thumb.png" alt="Facebook" class="w-8 h-8"></a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+
+
+
+
+    <!-- Open the modal using ID.showModal() method -->
+    <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+
+    <dialog id="word_modal" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+            <div id="modal-content" class="space-y-4">
+                <!-- এখানে JS দিয়ে content ঢোকানো হবে -->
+            </div>
+            <div class="modal-action">
+                <form method="dialog">
+                    <button class="btn">Close</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
+
+
+
+
+
+    <script src="./script/index.js"></script>
+</body>
+
+</html>
